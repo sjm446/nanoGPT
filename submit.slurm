@@ -4,6 +4,7 @@
 
 export OMP_NUM_THREADS=1
 export MASTER_PORT=$(expr 10000 + $(echo -n $SLURM_JOBID | tail -c 4))
+# Logic below works in CoreWeave (due to automation), but perhaps not in other places.
 export MASTER_ADDR=`cat /etc/hosts| tail -n 1 | awk '{print $1}'`
 export NCCL_DEBUG=INFO
 
